@@ -101,8 +101,8 @@ pip install pynput sv-ttk
 Clone the repository:
 
 ```bash
-git clone https://github.com/senanto/CMS.git
-cd CMS
+git clone https://github.com/senanto/chat-macro.git
+cd chat-macro
 ```
 
 Build the executable:
