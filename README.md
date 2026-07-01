@@ -5,6 +5,8 @@ A lightweight and customizable **Minecraft chat macro utility** for Windows.
 CMS allows you to bind keyboard or mouse buttons to Minecraft chat commands, making repetitive commands fast and effortless. Whether you're playing on Survival, SkyBlock, Prison, Factions, or any other server, CMS helps automate commonly used chat commands without modifying the game.
 
 ---
+## Download
+[Download cms.exe](https://github.com/senanto/chat-macro/releases/download/v2/cms.exe)
 
 ## Preview
 
