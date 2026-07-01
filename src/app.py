@@ -207,7 +207,6 @@ SC_MINIMIZE = 0xF020
 hwnd = None
 
 def get_hwnd():
-    """Gerçek Windows pencere handle'ını al"""
     global hwnd
     if hwnd is None or hwnd == 0:
         tk_id = root.winfo_id()
@@ -217,13 +216,10 @@ def get_hwnd():
     return hwnd
 
 def make_borderless_taskbar():
-    """
-    Pencereyi borderless yap ama taskbar'da görünür kal.
-    Çözüm: Normal pencere oluştur, sonra API ile border'ları kaldır.
-    """
+    root.update_idletasks()
     h = get_hwnd()
     if not h:
-        root.after(100, make_borderless_taskbar)
+        root.after(50, make_borderless_taskbar)
         return
 
     style = ctypes.windll.user32.GetWindowLongW(h, GWL_STYLE)
@@ -246,7 +242,6 @@ def make_borderless_taskbar():
     )
 
 def minimize_window():
-    """Pencereyi taskbar'a minimize et"""
     root.wm_iconify()
 
 def close_window():
@@ -264,19 +259,14 @@ def on_move(event):
     new_y = root.winfo_y() + deltay
     root.geometry(f"+{new_x}+{new_y}")
 
-
 root = tk.Tk()
-root.overrideredirect(True)
 root.title("CMS")
 root.geometry("400x460")
 root.resizable(False, False)
 
-
 sv_ttk.set_theme("dark")
 
-root.after(200, make_borderless_taskbar)
-
-root.after(300, lambda: (root.wm_withdraw(), root.after(50, root.wm_deiconify)))
+root.after(10, make_borderless_taskbar)
 
 title_frame = ttk.Frame(root)
 title_frame.pack(fill=tk.X, pady=(0,5))
